@@ -4,7 +4,7 @@ namespace BookOperations.BookOperations.UpdateBook;
 public class UpdateBookCommand
 {
     public UpdateBookModel Model { get; set; }
-    public int Id { get; set; }
+    public int BookId { get; set; }
 
     private readonly BookStoreDbContext _bookStoreDbContext;
     public UpdateBookCommand(BookStoreDbContext bookStoreDbContext)
@@ -16,7 +16,7 @@ public class UpdateBookCommand
     {
         var book = _bookStoreDbContext
             .Books
-            .SingleOrDefault(x => x.Id == Id);
+            .SingleOrDefault(x => x.Id == BookId);
 
         if (Model.PageCount<=0)
             throw new InvalidDataException("Sayfa Sayısı 0 dan Küçük Olamaz");

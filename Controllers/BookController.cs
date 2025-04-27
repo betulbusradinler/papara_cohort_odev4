@@ -80,7 +80,7 @@ public class BookController : ControllerBase
         UpdateBookCommand updateBookCommand = new UpdateBookCommand(_context);
         try
         {
-            updateBookCommand.Id = id;
+            updateBookCommand.BookId = id;
             updateBookCommand.Model = updateModel;
             UpdateBookCommandValidator validator = new();
             validator.ValidateAndThrow(updateBookCommand);
